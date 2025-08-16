@@ -24,7 +24,6 @@ Trong github này được tổ chức như sau:
  ┣ 📜ggflight_selenium.py # Định nghĩa các hàm bổ trợ
  ┣ 📜ggflight_sql.py # Định nghĩa các hàm bổ trợ
  ┗ 📜requirements.txt # Phiên bản thư viện
-📂temp # Nơi chứa rác đúng nghĩa và test code
 📜README.md
 ```
 Như vậy, từ dòng hướng dẫn này, ta coi folder `official` là thư mục làm việc chính và hướng dẫn dựa trên path của folder `official`.
