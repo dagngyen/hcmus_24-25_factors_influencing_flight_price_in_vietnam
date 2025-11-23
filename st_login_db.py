@@ -1,5 +1,5 @@
 import streamlit as st
-from ggflight_sql import *
+from srv.ggflight_sql import *
 import datetime
 
 # Print Hello morning or afternoon or evening with the current time
