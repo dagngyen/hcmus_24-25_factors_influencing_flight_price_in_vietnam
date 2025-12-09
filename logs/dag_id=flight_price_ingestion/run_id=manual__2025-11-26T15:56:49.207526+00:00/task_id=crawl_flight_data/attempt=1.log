@@ -1,0 +1,17 @@
+[2025-11-26T15:56:51.718+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_price_ingestion.crawl_flight_data manual__2025-11-26T15:56:49.207526+00:00 [queued]>
+[2025-11-26T15:56:51.726+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_price_ingestion.crawl_flight_data manual__2025-11-26T15:56:49.207526+00:00 [queued]>
+[2025-11-26T15:56:51.726+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-11-26T15:56:51.740+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): crawl_flight_data> on 2025-11-26 15:56:49.207526+00:00
+[2025-11-26T15:56:51.745+0000] {standard_task_runner.py:57} INFO - Started process 313 to run task
+[2025-11-26T15:56:51.748+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'flight_price_ingestion', 'crawl_flight_data', 'manual__2025-11-26T15:56:49.207526+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmp2_kez3lc']
+[2025-11-26T15:56:51.751+0000] {standard_task_runner.py:85} INFO - Job 2: Subtask crawl_flight_data
+[2025-11-26T15:56:51.795+0000] {task_command.py:415} INFO - Running <TaskInstance: flight_price_ingestion.crawl_flight_data manual__2025-11-26T15:56:49.207526+00:00 [running]> on host 98e67324e0f6
+[2025-11-26T15:56:51.870+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='user' AIRFLOW_CTX_DAG_ID='flight_price_ingestion' AIRFLOW_CTX_TASK_ID='crawl_flight_data' AIRFLOW_CTX_EXECUTION_DATE='2025-11-26T15:56:49.207526+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-26T15:56:49.207526+00:00'
+[2025-11-26T15:56:51.871+0000] {logging_mixin.py:151} INFO - Running Scraper...
+[2025-11-26T15:57:17.592+0000] {logging_mixin.py:151} INFO - Scraping failed for SGN to HAN on 2025-11-26 in Economy class after 5 retries.
+[2025-11-26T15:57:42.407+0000] {logging_mixin.py:151} INFO - Scraping failed for SGN to HAN on 2025-11-26 in Business class after 5 retries.
+[2025-11-26T15:58:30.948+0000] {logging_mixin.py:151} INFO - ✅ Đã lưu 150 dòng vào bảng flight_prices
+[2025-11-26T15:58:30.948+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-11-26T15:58:30.956+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=flight_price_ingestion, task_id=crawl_flight_data, execution_date=20251126T155649, start_date=20251126T155651, end_date=20251126T155830
+[2025-11-26T15:58:31.014+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-11-26T15:58:31.031+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
