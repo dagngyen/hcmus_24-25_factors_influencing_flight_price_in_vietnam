@@ -357,7 +357,7 @@ def GGFlightScraper(flight_df, departure_city, arrival_city, start_date, end_dat
         flight_df = pd.DataFrame(columns=['timestamp',
                                           'id_departure', 'id_arrival',
                                           'departure_datetime', 'arrival_datetime',
-                                          'airline_name', 'travel_class', 'is_nonstop',
+                                          'airline_name', 'travel_class', 'num_stop',
                                           'price'])
     
     # Loop scraping

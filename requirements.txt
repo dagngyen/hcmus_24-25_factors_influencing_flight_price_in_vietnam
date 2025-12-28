@@ -6,3 +6,5 @@ psycopg2-binary
 pytz
 requests
 apache-airflow-providers-postgres
+kafka-python
+confluent-kafka

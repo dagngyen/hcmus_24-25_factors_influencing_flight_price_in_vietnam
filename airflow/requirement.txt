@@ -5,3 +5,5 @@ sqlalchemy
 psycopg2-binary
 pytz
 requests
+kafka-python
+confluent-kafka

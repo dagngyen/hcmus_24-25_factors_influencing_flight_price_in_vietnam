@@ -7,9 +7,9 @@ class PostgresClient:
         # Lấy config từ biến môi trường (được set trong docker-compose)
         user = os.getenv('POSTGRES_USER', 'user')
         password = os.getenv('POSTGRES_PASSWORD', '00000000')
-        host = 'postgres' # Tên service trong docker-compose
+        host = os.getenv('POSTGRES_HOSTNAME', 'flight_postgres') # Tên service trong docker-compose
         db = os.getenv('POSTGRES_DB', 'ggflight')
-        port = 5432
+        port = os.getenv('POSTGRES_PORT', '5432')
         
         self.engine = create_engine(f'postgresql+psycopg2://{user}:{password}@{host}:{port}/{db}')
 
@@ -20,4 +20,14 @@ class PostgresClient:
             print(f"✅ Đã lưu {len(df)} dòng vào bảng {table_name}")
         except Exception as e:
             print(f"❌ Lỗi lưu DB: {e}")
+            raise e
+    
+    def fetch_data(self, query):
+        try:
+            with self.engine.connect() as conn:
+                df = pd.read_sql(query, conn)
+            print(f"✅ Đã lấy {len(df)} dòng")
+            return df
+        except Exception as e:
+            print(f"❌ Lỗi lấy dữ liệu từ DB: {e}")
             raise e

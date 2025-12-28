@@ -1,19 +1,34 @@
+-- 0. Tao cơ sở dữ liệu nếu chưa tồn tại
+-- CREATE DATABASE ggflight;
+
 -- 1. Tạo bảng lưu trữ giá vé máy bay (Bảng cũ của bạn)
-CREATE TABLE IF NOT EXISTS flight_prices (
-    timestamp TIMESTAMPTZ,
-    id_departure VARCHAR(10),
-    id_arrival VARCHAR(10),
-    departure_datetime TIMESTAMPTZ,
-    arrival_datetime TIMESTAMPTZ,
+CREATE TABLE IF NOT EXISTS flight_raw (
+    timestamp VARCHAR(20),
+    id_departure CHAR(4),
+    id_arrival CHAR(4),
+    departure_datetime VARCHAR(20),
+    arrival_datetime VARCHAR(20),
     airline_name VARCHAR(100),
     travel_class VARCHAR(50),
-    is_nonstop BOOLEAN,
+    num_stop VARCHAR(100),
+    price NUMERIC
+);
+
+CREATE TABLE IF NOT EXISTS flight_prices (
+    timestamp DATE,
+    id_departure CHAR(4),
+    id_arrival CHAR(4),
+    departure_datetime TIMESTAMP,
+    arrival_datetime TIMESTAMP,
+    airline_name VARCHAR(100),
+    travel_class VARCHAR(50),
+    num_stop SMALLINT,
     price NUMERIC
 );
 
 -- 2. Tạo bảng danh mục sân bay (Bảng mới)
 CREATE TABLE IF NOT EXISTS airports (
-    iata VARCHAR(5) PRIMARY KEY,
+    iata CHAR(4) PRIMARY KEY,
     airport VARCHAR(255)
 );
 
