@@ -30,11 +30,11 @@ with DAG(
         task_id='extract_task',
         python_callable=extract_flight_data,
         op_kwargs={
-            'departure_cities': ['HAN', 'SGN'], 
-            'arrival_cities': ['SGN', 'HAN'],
+            'departure_cities': ['HAN'], 
+            'arrival_cities': ['SGN'],
             
             'start_date': '{{ ds }}', 
-            'end_date': '{{ macros.ds_add(ds, 30) }}',
+            'end_date': '{{ macros.ds_add(ds, 5) }}',
             
             'travel_classes': ['Economy', 'Business'],
             'execution_date': '{{ ds_nodash }}'

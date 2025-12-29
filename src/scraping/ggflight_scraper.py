@@ -219,7 +219,7 @@ def scrape(flight_df, departure_city, arrival_city, departure_date, travel_class
         flight_df = pd.DataFrame(columns=['timestamp',
                                           'id_departure', 'id_arrival',
                                           'departure_datetime', 'arrival_datetime',
-                                          'airline_name', 'travel_class', 'is_nonstop',
+                                          'airline_name', 'travel_class', 'num_stop',
                                           'price'])
     
     while retries < max_retries:        
@@ -268,25 +268,19 @@ def scrape(flight_df, departure_city, arrival_city, departure_date, travel_class
                     departure_time = entry.find_element(By.CSS_SELECTOR, "span[aria-label^='Departure time:']").text
                     arrival_time = entry.find_element(By.CSS_SELECTOR, "span[aria-label^='Arrival time:']").text
                     airline = entry.find_element(By.CSS_SELECTOR, '.sSHqwe.tPgKwe.ogfYpf > span').text
-                    
-                    # Logic check nonstop
-                    try:
-                        is_nonstop_text = entry.find_element(By.CLASS_NAME, 'rGRiKd').get_property('textContent')
-                        is_nonstop = True if "Nonstop" in is_nonstop_text else False
-                    except:
-                        is_nonstop = False
+                    num_stop = entry.find_element(By.CLASS_NAME, 'rGRiKd').get_property('textContent')
 
                     # Logic check price
                     try:
                         price = entry.find_element(By.CSS_SELECTOR, '.YMlIz.FpEdX > span').text
                     except:
-                        price = 'Price unavailable'
+                        price = ""
 
                     # Clean data
                     departure_time_clean = convert_datetime(departure_date, departure_time)
                     arrival_time_clean = convert_datetime(departure_date, arrival_time)
                     
-                    if departure_time_clean is None or arrival_time_clean is None or 'Price unavailable' in price:
+                    if departure_time_clean is None or arrival_time_clean is None:
                         continue
                     
                     # Remove currency symbol and commas
@@ -301,7 +295,7 @@ def scrape(flight_df, departure_city, arrival_city, departure_date, travel_class
                         'arrival_datetime': arrival_time_clean,
                         'airline_name': airline, 
                         'travel_class': travel_class, 
-                        'is_nonstop': is_nonstop,
+                        'num_stop': num_stop,
                         'price': price_clean
                     }
                     
