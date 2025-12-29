@@ -1,0 +1,83 @@
+[2025-12-28T21:07:47.113+0700] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-28T21:07:47.145+0700] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_ingestion_v2.transform_load_task manual__2025-12-28T13:58:36.975733+00:00 [queued]>
+[2025-12-28T21:07:47.156+0700] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_ingestion_v2.transform_load_task manual__2025-12-28T13:58:36.975733+00:00 [queued]>
+[2025-12-28T21:07:47.157+0700] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-12-28T21:07:47.175+0700] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_load_task> on 2025-12-28 13:58:36.975733+00:00
+[2025-12-28T21:07:47.180+0700] {standard_task_runner.py:63} INFO - Started process 300 to run task
+[2025-12-28T21:07:47.184+0700] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'flight_ingestion_v2', 'transform_load_task', 'manual__2025-12-28T13:58:36.975733+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpu181_vqg']
+[2025-12-28T21:07:47.186+0700] {standard_task_runner.py:91} INFO - Job 13: Subtask transform_load_task
+[2025-12-28T21:07:47.204+0700] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-28T21:07:47.239+0700] {task_command.py:426} INFO - Running <TaskInstance: flight_ingestion_v2.transform_load_task manual__2025-12-28T13:58:36.975733+00:00 [running]> on host 905c848feca9
+[2025-12-28T21:07:47.339+0700] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='flight_ingestion_v2' AIRFLOW_CTX_TASK_ID='transform_load_task' AIRFLOW_CTX_EXECUTION_DATE='2025-12-28T13:58:36.975733+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-28T13:58:36.975733+00:00'
+[2025-12-28T21:07:47.340+0700] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-28T21:07:47.356+0700] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=flight_kafka:29092 <connecting> [IPv4 ('172.19.0.2', 29092)]>: connecting to flight_kafka:29092 [('172.19.0.2', 29092) IPv4]
+[2025-12-28T21:07:47.359+0700] {conn.py:622} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=flight_kafka:29092 <checking_api_versions_recv> [IPv4 ('172.19.0.2', 29092)]>: Broker version identified as 2.6
+[2025-12-28T21:07:47.360+0700] {conn.py:461} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Connection complete.
+[2025-12-28T21:07:47.362+0700] {subscription_state.py:181} INFO - Updating subscribed topics to: ('flight_data_pipeline',)
+[2025-12-28T21:07:47.362+0700] {logging_mixin.py:188} INFO - --- [KAFKA] Polling messages from topic... ---
+[2025-12-28T21:07:47.365+0700] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=1 host=flight_kafka:29092 <connecting> [IPv4 ('172.19.0.2', 29092)]>: connecting to flight_kafka:29092 [('172.19.0.2', 29092) IPv4]
+[2025-12-28T21:07:47.366+0700] {conn.py:461} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=1 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Connection complete.
+[2025-12-28T21:07:47.367+0700] {conn.py:951} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Closing connection. 
+[2025-12-28T21:07:47.472+0700] {cluster.py:403} INFO - Coordinator for group/flight_group is ('coordinator-1', 'flight_kafka', 29092, None)
+[2025-12-28T21:07:47.473+0700] {base.py:835} INFO - Discovered coordinator coordinator-1 for group flight_group
+[2025-12-28T21:07:47.474+0700] {base.py:895} INFO - Starting new heartbeat thread
+[2025-12-28T21:07:47.477+0700] {consumer.py:379} INFO - Revoking previously assigned partitions () for group flight_group
+[2025-12-28T21:07:47.478+0700] {base.py:433} INFO - Failed to join group flight_group: NodeNotReadyError: coordinator-1
+[2025-12-28T21:07:47.481+0700] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=coordinator-1 host=flight_kafka:29092 <connecting> [IPv4 ('172.19.0.2', 29092)]>: connecting to flight_kafka:29092 [('172.19.0.2', 29092) IPv4]
+[2025-12-28T21:07:47.483+0700] {conn.py:461} INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=coordinator-1 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Connection complete.
+[2025-12-28T21:07:47.585+0700] {base.py:546} INFO - (Re-)joining group flight_group
+[2025-12-28T21:07:47.588+0700] {base.py:661} INFO - Received member id kafka-python-2.3.0-ac0c51f1-91f8-4f9b-9837-140b13ec865f for group flight_group; will retry join-group
+[2025-12-28T21:07:47.588+0700] {base.py:433} INFO - Failed to join group flight_group: [Error 79] MemberIdRequiredError
+[2025-12-28T21:07:47.590+0700] {base.py:546} INFO - (Re-)joining group flight_group
+[2025-12-28T21:07:47.593+0700] {base.py:617} INFO - Successfully joined group flight_group <Generation 1 (member_id: kafka-python-2.3.0-ac0c51f1-91f8-4f9b-9837-140b13ec865f, protocol: range)>
+[2025-12-28T21:07:47.594+0700] {base.py:619} INFO - Elected group leader -- performing partition assignments using range
+[2025-12-28T21:07:47.598+0700] {subscription_state.py:254} INFO - Updated partition assignment: [('flight_data_pipeline', 0)]
+[2025-12-28T21:07:47.598+0700] {consumer.py:260} INFO - Setting newly assigned partitions (('flight_data_pipeline', 0),) for group flight_group
+[2025-12-28T21:07:47.603+0700] {fetcher.py:418} INFO - Resetting offset for partition ('flight_data_pipeline', 0) to offset 0.
+[2025-12-28T21:07:47.608+0700] {logging_mixin.py:188} INFO - --- Nhận tín hiệu xử lý data: {'start_date': '2025-12-28', 'end_date': '2026-01-02', 'record_count': 482, 'source': 'ggflight', 'status': 'ready_for_transform'} ---
+[2025-12-28T21:07:47.620+0700] {logging_mixin.py:188} INFO - ❌ Lỗi lấy dữ liệu từ DB: dict is not a sequence
+[2025-12-28T21:07:47.621+0700] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-28T21:07:47.622+0700] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/src/etl/pipeline.py", line 94, in transform_load_flight_data
+    df_raw = db_client.fetch_data(query)
+  File "/opt/airflow/src/database/db_client.py", line 33, in fetch_data
+    raise e
+  File "/opt/airflow/src/database/db_client.py", line 28, in fetch_data
+    df = pd.read_sql(query, conn)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/sql.py", line 682, in read_sql
+    return pandas_sql.read_query(
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/sql.py", line 1776, in read_query
+    result = self.execute(sql, params)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/io/sql.py", line 1599, in execute
+    return self.con.exec_driver_sql(sql, *args)
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1770, in exec_driver_sql
+    return self._exec_driver_sql(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1674, in _exec_driver_sql
+    ret = self._execute_context(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2138, in _handle_dbapi_exception
+    util.raise_(exc_info[1], with_traceback=exc_info[2])
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+TypeError: dict is not a sequence
+[2025-12-28T21:07:47.633+0700] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=flight_ingestion_v2, task_id=transform_load_task, run_id=manual__2025-12-28T13:58:36.975733+00:00, execution_date=20251228T135836, start_date=20251228T140747, end_date=20251228T140747
+[2025-12-28T21:07:47.656+0700] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task transform_load_task (dict is not a sequence; 300)
+[2025-12-28T21:07:47.690+0700] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-28T21:07:47.708+0700] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-28T21:07:47.710+0700] {local_task_job_runner.py:222} INFO - ::endgroup::

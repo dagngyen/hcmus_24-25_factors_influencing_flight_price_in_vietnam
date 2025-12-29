@@ -1,0 +1,54 @@
+[2025-12-28T20:58:38.838+0700] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-28T20:58:38.866+0700] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_ingestion_v2.extract_task manual__2025-12-28T13:58:36.975733+00:00 [queued]>
+[2025-12-28T20:58:38.875+0700] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_ingestion_v2.extract_task manual__2025-12-28T13:58:36.975733+00:00 [queued]>
+[2025-12-28T20:58:38.876+0700] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-28T20:58:38.891+0700] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_task> on 2025-12-28 13:58:36.975733+00:00
+[2025-12-28T20:58:38.896+0700] {standard_task_runner.py:63} INFO - Started process 190 to run task
+[2025-12-28T20:58:38.900+0700] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'flight_ingestion_v2', 'extract_task', 'manual__2025-12-28T13:58:36.975733+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmp0miciwry']
+[2025-12-28T20:58:38.902+0700] {standard_task_runner.py:91} INFO - Job 11: Subtask extract_task
+[2025-12-28T20:58:38.917+0700] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-12-28T20:58:38.950+0700] {task_command.py:426} INFO - Running <TaskInstance: flight_ingestion_v2.extract_task manual__2025-12-28T13:58:36.975733+00:00 [running]> on host 905c848feca9
+[2025-12-28T20:58:39.064+0700] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='flight_ingestion_v2' AIRFLOW_CTX_TASK_ID='extract_task' AIRFLOW_CTX_EXECUTION_DATE='2025-12-28T13:58:36.975733+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-28T13:58:36.975733+00:00'
+[2025-12-28T20:58:39.066+0700] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-28T20:58:39.095+0700] {logging_mixin.py:188} INFO - --- Bắt đầu Extract từ 2025-12-28 đến 2026-01-02 ---
+[2025-12-28T20:58:39.101+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-28 (Economy)
+[2025-12-28T20:58:48.759+0700] {logging_mixin.py:188} INFO - -> Đã cào được 9 chuyến bay: HAN -> SGN
+[2025-12-28T20:58:48.835+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-28 (Business)
+[2025-12-28T20:58:57.827+0700] {logging_mixin.py:188} INFO - -> Đã cào được 4 chuyến bay: HAN -> SGN
+[2025-12-28T20:58:57.898+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-29 (Economy)
+[2025-12-28T20:59:28.381+0700] {logging_mixin.py:188} INFO - -> Đã cào được 63 chuyến bay: HAN -> SGN
+[2025-12-28T20:59:28.454+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-29 (Business)
+[2025-12-28T20:59:54.944+0700] {logging_mixin.py:188} INFO - -> Đã cào được 26 chuyến bay: HAN -> SGN
+[2025-12-28T20:59:55.019+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-30 (Economy)
+[2025-12-28T21:00:16.772+0700] {logging_mixin.py:188} INFO - -> Đã cào được 68 chuyến bay: HAN -> SGN
+[2025-12-28T21:00:16.844+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-30 (Business)
+[2025-12-28T21:00:30.154+0700] {logging_mixin.py:188} INFO - -> Đã cào được 27 chuyến bay: HAN -> SGN
+[2025-12-28T21:00:30.227+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-31 (Economy)
+[2025-12-28T21:00:51.466+0700] {logging_mixin.py:188} INFO - -> Đã cào được 71 chuyến bay: HAN -> SGN
+[2025-12-28T21:00:51.542+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2025-12-31 (Business)
+[2025-12-28T21:01:04.407+0700] {logging_mixin.py:188} INFO - -> Đã cào được 27 chuyến bay: HAN -> SGN
+[2025-12-28T21:01:04.480+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2026-01-01 (Economy)
+[2025-12-28T21:01:24.771+0700] {logging_mixin.py:188} INFO - -> Đã cào được 63 chuyến bay: HAN -> SGN
+[2025-12-28T21:01:24.858+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2026-01-01 (Business)
+[2025-12-28T21:01:44.592+0700] {logging_mixin.py:188} INFO - -> Đã cào được 29 chuyến bay: HAN -> SGN
+[2025-12-28T21:01:44.668+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2026-01-02 (Economy)
+[2025-12-28T21:02:16.589+0700] {logging_mixin.py:188} INFO - -> Đã cào được 65 chuyến bay: HAN -> SGN
+[2025-12-28T21:02:16.670+0700] {logging_mixin.py:188} INFO - Processing: HAN -> SGN on 2026-01-02 (Business)
+[2025-12-28T21:02:42.077+0700] {logging_mixin.py:188} INFO - -> Đã cào được 30 chuyến bay: HAN -> SGN
+[2025-12-28T21:02:42.212+0700] {logging_mixin.py:188} INFO - ✅ Đã lưu 482 dòng vào bảng flight_raw
+[2025-12-28T21:02:42.216+0700] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=flight_kafka:29092 <connecting> [IPv4 ('172.19.0.2', 29092)]>: connecting to flight_kafka:29092 [('172.19.0.2', 29092) IPv4]
+[2025-12-28T21:02:42.223+0700] {conn.py:622} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=flight_kafka:29092 <checking_api_versions_recv> [IPv4 ('172.19.0.2', 29092)]>: Broker version identified as 2.6
+[2025-12-28T21:02:42.224+0700] {conn.py:461} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Connection complete.
+[2025-12-28T21:02:42.333+0700] {conn.py:400} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=flight_kafka:29092 <connecting> [IPv4 ('172.19.0.2', 29092)]>: connecting to flight_kafka:29092 [('172.19.0.2', 29092) IPv4]
+[2025-12-28T21:02:42.337+0700] {conn.py:461} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Connection complete.
+[2025-12-28T21:02:42.340+0700] {conn.py:951} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Closing connection. 
+[2025-12-28T21:02:42.376+0700] {cluster.py:318} ERROR - Topic flight_data_pipeline not found in cluster metadata
+[2025-12-28T21:02:42.509+0700] {logging_mixin.py:188} INFO - --- [KAFKA] Sent to flight_data_pipeline partition 0 offset 0 ---
+[2025-12-28T21:02:42.510+0700] {kafka.py:633} INFO - <KafkaProducer client_id=kafka-python-producer-1 transactional_id=None>: Closing the Kafka producer with 9223372036.0 secs timeout.
+[2025-12-28T21:02:42.511+0700] {conn.py:951} INFO - <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=flight_kafka:29092 <connected> [IPv4 ('172.19.0.2', 29092)]>: Closing connection. 
+[2025-12-28T21:02:42.513+0700] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-28T21:02:42.514+0700] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-28T21:02:42.526+0700] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=flight_ingestion_v2, task_id=extract_task, run_id=manual__2025-12-28T13:58:36.975733+00:00, execution_date=20251228T135836, start_date=20251228T135838, end_date=20251228T140242
+[2025-12-28T21:02:42.577+0700] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-28T21:02:42.610+0700] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-28T21:02:42.613+0700] {local_task_job_runner.py:222} INFO - ::endgroup::

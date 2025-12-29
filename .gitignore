@@ -1,68 +1,68 @@
-# ------------------------------------------------
-# 1. BẢO MẬT (QUAN TRỌNG NHẤT)
-# ------------------------------------------------
-.env
-.env.*
-*.pem
-*.key
+# # ------------------------------------------------
+# # 1. BẢO MẬT (QUAN TRỌNG NHẤT)
+# # ------------------------------------------------
+# .env
+# .env.*
+# *.pem
+# *.key
 
-# ------------------------------------------------
-# 2. PYTHON & MÔI TRƯỜNG
-# ------------------------------------------------
-# File biên dịch bytecode (sinh ra khi chạy python)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# # ------------------------------------------------
+# # 2. PYTHON & MÔI TRƯỜNG
+# # ------------------------------------------------
+# # File biên dịch bytecode (sinh ra khi chạy python)
+# __pycache__/
+# *.pyc
+# *.pyo
+# *.pyd
 
-# Thư mục môi trường ảo (Virtual Env)
-venv/
-env/
-.venv/
-.env/
+# # Thư mục môi trường ảo (Virtual Env)
+# venv/
+# env/
+# .venv/
+# .env/
 
-# Thư viện cài đặt (nếu có build)
-*.egg-info/
-.eggs/
-dist/
-build/
+# # Thư viện cài đặt (nếu có build)
+# *.egg-info/
+# .eggs/
+# dist/
+# build/
 
-# ------------------------------------------------
-# 3. DỮ LIỆU & LOGS (TRÁNH PUSH FILE NẶNG)
-# ------------------------------------------------
-# Bỏ qua toàn bộ dữ liệu trong thư mục data
-data/raw/*
-data/processed/*
+# # ------------------------------------------------
+# # 3. DỮ LIỆU & LOGS (TRÁNH PUSH FILE NẶNG)
+# # ------------------------------------------------
+# # Bỏ qua toàn bộ dữ liệu trong thư mục data
+# data/raw/*
+# data/processed/*
 
-# Giữ lại cấu trúc thư mục data (không xóa thư mục, chỉ xóa file bên trong)
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+# # Giữ lại cấu trúc thư mục data (không xóa thư mục, chỉ xóa file bên trong)
+# !data/raw/.gitkeep
+# !data/processed/.gitkeep
 
-# Logs của Airflow và Docker
-logs/
-*.log
+# # Logs của Airflow và Docker
+# logs/
+# *.log
 
-# ------------------------------------------------
-# 4. JUPYTER NOTEBOOKS
-# ------------------------------------------------
-# Checkpoints tự động lưu của Jupyter
-.ipynb_checkpoints/
-*/.ipynb_checkpoints/
+# # ------------------------------------------------
+# # 4. JUPYTER NOTEBOOKS
+# # ------------------------------------------------
+# # Checkpoints tự động lưu của Jupyter
+# .ipynb_checkpoints/
+# */.ipynb_checkpoints/
 
-# ------------------------------------------------
-# 5. IDE & HỆ ĐIỀU HÀNH
-# ------------------------------------------------
-# Cấu hình VS Code, PyCharm
-.vscode/
-.idea/
+# # ------------------------------------------------
+# # 5. IDE & HỆ ĐIỀU HÀNH
+# # ------------------------------------------------
+# # Cấu hình VS Code, PyCharm
+# .vscode/
+# .idea/
 
-# File rác của macOS, Windows
-.DS_Store
-Thumbs.db
+# # File rác của macOS, Windows
+# .DS_Store
+# Thumbs.db
 
-# ------------------------------------------------
-# 6. DOCKER & AIRFLOW GENERATED
-# ------------------------------------------------
-# File PID (Process ID)
-airflow-webserver.pid
-standalone_admin_password.txt
+# # ------------------------------------------------
+# # 6. DOCKER & AIRFLOW GENERATED
+# # ------------------------------------------------
+# # File PID (Process ID)
+# airflow-webserver.pid
+# standalone_admin_password.txt
